@@ -1,1 +1,1 @@
-# Android App Development (CPSC 356) - Android Clicker
+# Android App Development (CPSC 365) - Android Clicker
