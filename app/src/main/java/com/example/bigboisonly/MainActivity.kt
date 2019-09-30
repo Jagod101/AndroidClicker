@@ -12,22 +12,37 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private var chapmanCounter: Long = 0
     fun getStore() = getPreferences(Context.MODE_PRIVATE)
+    var CHAPMAN_COUNTER_KEY: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val usrname = intent.extras?.get("username").toString().trim()
+        CHAPMAN_COUNTER_KEY = usrname
+
         if (savedInstanceState != null) {
-            chapmanCounter = savedInstanceState.getLong(CHAPMAN_COUNTER_KEY, 0)
-            myCounter.text = chapmanCounter.toString()
+            updateCounter(savedInstanceState.getLong(CHAPMAN_COUNTER_KEY, 0))
+        } else if (getStore().contains(CHAPMAN_COUNTER_KEY)) {
+            updateCounter(getStore().getLong(CHAPMAN_COUNTER_KEY, 0))
         }
         myButton.setOnClickListener {
             chapmanCounter++
             myCounter.text = "Counter: " + chapmanCounter.toString()
             myImage.rotate90()
+
+            //myButton.text = when (chapmanCounter) {
+            //    1L -> "stop"
+            //    in 2 .. 9 -> myButton.text.toString().plus("!")
+            //    else -> myButton.text
+            //}
         }
     }
 
+    private fun updateCounter(count: Long) {
+        chapmanCounter = count
+        myCounter.text = chapmanCounter.toString()
+    }
     override fun onPause() {
         super.onPause()
         getStore().edit().putLong(CHAPMAN_COUNTER_KEY, chapmanCounter).apply()
@@ -41,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    companion object {
-        private const val CHAPMAN_COUNTER_KEY = "chapmanCounterKey"
-    }
+    //companion object {
+    //    private const val CHAPMAN_COUNTER_KEY = "chapmanCounterKey"
+    //}
 }
