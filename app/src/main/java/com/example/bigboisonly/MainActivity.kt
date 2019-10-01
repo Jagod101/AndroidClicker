@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val usrname = intent.extras?.get("username").toString().trim()
-        CHAPMAN_COUNTER_KEY = usrname
+        val name = intent.extras?.get("username").toString().trim()
+        CHAPMAN_COUNTER_KEY = name
 
         if (savedInstanceState != null) {
             updateCounter(savedInstanceState.getLong(CHAPMAN_COUNTER_KEY, 0))
