@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         }
         myButton.setOnClickListener {
             chapmanCounter++
-            myCounter.text = "Counter: " + chapmanCounter.toString()
-            myImage.rotate90()
+            myCounter.text = "Chapman Points: " + chapmanCounter.toString()
+            //myImage.rotate90()
 
             //myButton.text = when (chapmanCounter) {
             //    1L -> "stop"

@@ -11,37 +11,29 @@
             android:id="@+id/myCounter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Counter: "
+            android:text="Chapman Points: "
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/myButton"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_chainStyle="spread"
-    app:layout_constraintVertical_bias="0.32999998"/>
 
-    <ImageView
-            android:id="@+id/myImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+    />
+
+
+    <ImageButton
+            android:id="@+id/myButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/fenestra"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-    />
-
-    <Button
-            android:id="@+id/myButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Click Me!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible"
-            app:layout_constraintHorizontal_bias="0.485" app:layout_constraintVertical_bias="0.65"/>
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintVertical_bias="0.65"
+    />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="center">
 
+    <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="center"
+            android:src="@drawable/mh"
+            />
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:src="@drawable/loginbackground"
+    />
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginBottom="60dp"
             android:text="Enter Your Username: "
             />
 
@@ -15,12 +31,16 @@
             android:id="@+id/loginUsernameField"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
             />
 
     <ImageButton
             android:id="@+id/loginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background"
+            android:layout_below="@id/loginUsernameField"
+            android:src="@drawable/submit"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginBottom="-50dp"
             />
-</LinearLayout>
+</merge>
