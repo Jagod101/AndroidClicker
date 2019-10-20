@@ -1,8 +1,8 @@
 package com.example.bigboisonly.view
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.bigboisonly.R
 import com.example.bigboisonly.viewmodel.CountViewModel

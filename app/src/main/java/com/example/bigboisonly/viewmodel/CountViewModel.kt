@@ -1,7 +1,7 @@
 package com.example.bigboisonly.viewmodel
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
+import androidx.lifecycle.AndroidViewModel
 import com.example.bigboisonly.CountRepository
 
 class CountViewModel(application: Application) : AndroidViewModel(application) {

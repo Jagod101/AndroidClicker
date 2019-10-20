@@ -1,7 +1,7 @@
 package com.example.bigboisonly
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.Transformations
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import android.content.Context
 import android.content.SharedPreferences
 import me.ibrahimsn.library.LiveSharedPreferences
