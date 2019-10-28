@@ -9,6 +9,7 @@ import com.example.bigboisonly.R
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
+    //onCreate, on Initialization, the app looks for User information
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -25,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
             }
         })
 
+        //Takes the data entered by the User and creates an updating count for them stored to their specific username
         loginButton.setOnClickListener {
             startActivity(Intent( this, MainActivity::class.java).apply { putExtra("username", loginUsernameField.text)})
         }

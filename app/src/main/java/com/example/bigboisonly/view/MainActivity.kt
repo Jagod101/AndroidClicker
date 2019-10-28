@@ -9,8 +9,11 @@ import com.example.bigboisonly.viewmodel.CountViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    //Late Initialize the Count View Model, Initializing the Counter
     private lateinit var countViewModel: CountViewModel
     private var chapmanCounter: Long = 0
+
+    //getUserName() is a username function to take the String entered on the Login Page to assign to the User
     private fun getUserName() = intent.extras?.get("username").toString().trim()
     //fun getStore() = getPreferences(Context.MODE_PRIVATE)
     //var CHAPMAN_COUNTER_KEY: String = ""
@@ -31,9 +34,11 @@ class MainActivity : AppCompatActivity() {
         countViewModel = ViewModelProviders.of(this).get(CountViewModel::class.java)
         countViewModel.getUserCount(getUserName()).observe(this,
             androidx.lifecycle.Observer { updateCounter(it) })
+
+        //Executes when the Button is Clicked by the User
         myButton.setOnClickListener {
-            chapmanCounter++
-            myCounter.text = "Chapman Points: " + chapmanCounter.toString()
+            chapmanCounter++ //Counter Updates by ++ (+1) per click
+            myCounter.text = "Chapman Points: " + chapmanCounter.toString() //Displays the updated Counter Value
             //myImage.rotate90()
 
             //myButton.text = when (chapmanCounter) {
@@ -41,9 +46,13 @@ class MainActivity : AppCompatActivity() {
             //    in 2 .. 9 -> myButton.text.toString().plus("!")
             //    else -> myButton.text
             //}
+
+            //Sets the User variables so they are saved
+            countViewModel.setUserCount(getUserName(), chapmanCounter + 1)
         }
     }
 
+    //Updates the displayed Counter
     private fun updateCounter(count: Long) {
         chapmanCounter = count
         myCounter.text = chapmanCounter.toString()
