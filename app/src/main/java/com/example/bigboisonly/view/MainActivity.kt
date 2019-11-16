@@ -1,16 +1,21 @@
 package com.example.bigboisonly.view
 
+
 import androidx.lifecycle.ViewModelProviders
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.bigboisonly.R
 import com.example.bigboisonly.viewmodel.CountViewModel
+import com.bumptech.glide.Glide
+import com.example.bigboisonly.model.Gif
+import com.example.bigboisonly.GifViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     //Late Initialize the Count View Model, Initializing the Counter
     private lateinit var countViewModel: CountViewModel
+    private lateinit var gifViewModel: GifViewModel
     private var chapmanCounter: Long = 0
 
     //getUserName() is a username function to take the String entered on the Login Page to assign to the User
@@ -35,6 +40,10 @@ class MainActivity : AppCompatActivity() {
         countViewModel.getUserCount(getUserName()).observe(this,
             androidx.lifecycle.Observer { updateCounter(it) })
 
+        gifViewModel = ViewModelProviders.of(this).get(GifViewModel::class.java)
+        gifViewModel.getRandomGif("android").observe(this,
+            androidx.lifecycle.Observer { loadGif(it) })
+
         //Executes when the Button is Clicked by the User
         myButton.setOnClickListener {
             chapmanCounter++ //Counter Updates by ++ (+1) per click
@@ -58,6 +67,10 @@ class MainActivity : AppCompatActivity() {
         myCounter.text = chapmanCounter.toString()
     }
 
+    private fun loadGif(gif: Gif){
+        Glide.with(this)
+            .load(gif.url)
+            .into(myGiphy)
 //    override fun onPause() {
 //        super.onPause()
 //        getStore().edit().putLong(CHAPMAN_COUNTER_KEY, chapmanCounter).apply()
