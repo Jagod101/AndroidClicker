@@ -9,7 +9,7 @@ import com.example.bigboisonly.R
 import com.example.bigboisonly.viewmodel.CountViewModel
 import com.bumptech.glide.Glide
 import com.example.bigboisonly.model.Gif
-import com.example.bigboisonly.GifViewModel
+import com.example.bigboisonly.viewmodel.GifViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -67,10 +67,11 @@ class MainActivity : AppCompatActivity() {
         myCounter.text = chapmanCounter.toString()
     }
 
-    private fun loadGif(gif: Gif){
+    private fun loadGif(gif: Gif) {
         Glide.with(this)
             .load(gif.url)
             .into(myGiphy)
+    }
 //    override fun onPause() {
 //        super.onPause()
 //        getStore().edit().putLong(CHAPMAN_COUNTER_KEY, chapmanCounter).apply()
